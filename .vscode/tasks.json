@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "Backend: install", "type": "shell", "command": "pip install -r requirements.txt", "options": { "cwd": "${workspaceFolder}/backend" } },
+    { "label": "Backend: seed sample data", "type": "shell", "command": "flask --app run seed", "options": { "cwd": "${workspaceFolder}/backend" } },
+    { "label": "Backend: run", "type": "shell", "command": "python run.py", "options": { "cwd": "${workspaceFolder}/backend" }, "isBackground": true, "problemMatcher": [] },
+    { "label": "Frontend: install", "type": "shell", "command": "npm install", "options": { "cwd": "${workspaceFolder}/frontend" } },
+    { "label": "Frontend: run", "type": "shell", "command": "npm run dev", "options": { "cwd": "${workspaceFolder}/frontend" }, "isBackground": true, "problemMatcher": [] },
+    { "label": "Run both", "dependsOn": ["Backend: run", "Frontend: run"], "problemMatcher": [] },
+    { "label": "Backend: tests", "type": "shell", "command": "pytest", "options": { "cwd": "${workspaceFolder}/backend" } },
+    { "label": "Frontend: tests", "type": "shell", "command": "npm test", "options": { "cwd": "${workspaceFolder}/frontend" } }
+  ]
+}

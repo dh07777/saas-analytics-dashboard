@@ -1,0 +1,7 @@
+{
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["backend/tests"],
+  "python.testing.cwd": "${workspaceFolder}/backend",
+  "files.exclude": { "**/__pycache__": true, "**/node_modules": true },
+  "editor.formatOnSave": false
+}

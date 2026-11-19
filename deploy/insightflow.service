@@ -1,0 +1,14 @@
+# /etc/systemd/system/insightflow.service  ->  sudo systemctl enable --now insightflow
+[Unit]
+Description=InsightFlow API
+After=network.target
+
+[Service]
+User=www-data
+WorkingDirectory=/var/www/insightflow/backend
+EnvironmentFile=/var/www/insightflow/backend/.env
+ExecStart=/var/www/insightflow/backend/.venv/bin/gunicorn -w 2 -b 127.0.0.1:5000 wsgi:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
